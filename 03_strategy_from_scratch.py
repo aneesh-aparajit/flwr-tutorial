@@ -126,7 +126,12 @@ class FedCustom(fl.server.strategy.Strategy):
 
         return [(client, evaluate_ins) for client in clients]
     
-    def aggregate_evaluate(self, server_round: int, results: List[Tuple[ClientProxy, EvaluateRes]], failures: List[Tuple[ClientProxy, EvaluateRes] | BaseException]) -> Tuple[float | None, Dict[str, Scalar]]:
+    def aggregate_evaluate(
+        self, 
+        server_round: int, 
+        results: List[Tuple[ClientProxy, EvaluateRes]], 
+        failures: List[Tuple[ClientProxy, EvaluateRes] | BaseException]
+    ) -> Tuple[float | None, Dict[str, Scalar]]:
         if not results:
             return None, {}
         
